@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
 
   getCategory(categoryId:string){
   const categoryName='col-lg-3 col-md-4 col-sm-6 mix '+this.ICategory?.find(x=>categoryId==x.categoryName)
-  console.log(categoryName)
   return categoryName
   }
  

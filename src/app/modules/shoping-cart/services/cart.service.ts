@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Product } from '../../products/models/product';
 import { Cart } from '../models/cart';
 import { CartItem } from '../models/cartItem';
@@ -7,6 +8,8 @@ import { CartItem } from '../models/cartItem';
   providedIn: 'root'
 })
 export class CartService {
+  private tpS: BehaviorSubject<Number> = new BehaviorSubject<Number>(10);
+  totalPrice = this.tpS.asObservable()
   cart: Cart = new Cart()
   addToCart(product: Product) {
     let carditem = this.cart.items.find(x => x.product.id === product.id)
@@ -17,9 +20,14 @@ export class CartService {
     this.cart.items.push(new CartItem(product))
   }
   removeFromCart(product: Product) {
-   this.cart.items= this.cart.items.filter(x=>x.product.id!=product.id)
+    let carditem = this.cart.items.findIndex(x => x.product.id === product.id)
+    this.cart.items.splice(carditem, 1)
+    return this.getCart()
   }
   getCart(): Cart {
     return this.cart
+  }
+  ChangeTotalPrice(totalPrice: Number) {
+    this.tpS.next(totalPrice)
   }
 }

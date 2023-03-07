@@ -20,8 +20,7 @@ export class CardComponent implements OnInit {
    )
   }
   addProductToCart(product:Product){
-    console.log(product)
     this.cartServices.addToCart(this.product)
-   //return this.router.navigate(['cart'])
+   return this.router.navigate(['cart'])
   }
 }

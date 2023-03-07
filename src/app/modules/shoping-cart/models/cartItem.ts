@@ -7,7 +7,7 @@ export class CartItem{
    // product:Product=new Product()
 
     product:Product
-    quantity:number=1
+    quantity:number=0
 
     get total():number{
         return this.product.price * this.quantity
