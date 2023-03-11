@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 import { Product } from 'src/app/modules/products/models/product';
-import { ProductService } from 'src/app/modules/products/services/product.service';
+import { ProductService } from 'product.service';
 
 @Component({
   selector: 'app-shop',

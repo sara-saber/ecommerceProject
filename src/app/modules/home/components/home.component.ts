@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/modules/categories/models/category';
 import { CategoryService } from 'src/app/modules/categories/services/category.service';
 import { Product } from 'src/app/modules/products/models/product';
-import { ProductService } from 'src/app/modules/products/services/product.service';
+import { ProductService } from 'product.service';
 
 @Component({
   selector: 'app-home',
