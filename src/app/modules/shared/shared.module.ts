@@ -5,6 +5,7 @@ import { CardComponent } from './components/card/card.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/components/footer/footer.component';
 import { HumbergerComponent } from './components/header/components/humberger/humberger.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -12,13 +13,15 @@ import { HumbergerComponent } from './components/header/components/humberger/hum
   imports: [
     HttpClientModule,
     CommonModule,
+    NgxPaginationModule
   ],
   exports:[
     HttpClientModule,
     CardComponent,
     HeaderComponent,
     FooterComponent,
-    HumbergerComponent
+    HumbergerComponent,
+    NgxPaginationModule
   ]
 })
 export class SharedModule { }

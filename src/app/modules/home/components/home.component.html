@@ -107,7 +107,7 @@
                     <ul>
                         <li class="active" data-filter="*">All</li>
                         <li data-filter='.Clothing'>Tools</li>
-                        <ng-container *ngFor="let c of ICategory">
+                        <ng-container *ngFor="let c of ICategory " >
                             <!-- <li data-filter="{c.categoryName? .+ c.categoryName:'false'}">{{c.categoryName}}</li>
                -->
                             <li data-filter="c.categoryName">{{c.categoryName}}</li>
@@ -118,11 +118,12 @@
             </div>
         </div>
         <div class="row featured__filter">
-            <ng-container *ngFor="let p of IProducts">
+            <ng-container *ngFor="let p of IProducts | paginate: { itemsPerPage:8, currentPage: page }">
                 <div [class]=getCategory(p.categoryName)>
                     <app-card [Id]="p.id"></app-card>
                 </div>
             </ng-container>
+            <pagination-controls (pageChange)="page= $event"></pagination-controls>
 
             <div class="col-lg-3 col-md-4 col-sm-6 mix Baby fresh-meat">
                 <div class="featured__item">

@@ -10,8 +10,9 @@ import { ProductService } from 'product.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  IProducts?:Product[]
+  IProducts:Product[]=[]
   ICategory:Category[]=[]
+  page: number = 1;
   constructor(private productService:ProductService,private categoryService:CategoryService){
     this.categoryService.getAll().subscribe(
       (res:Category[])=>this.ICategory=res,
