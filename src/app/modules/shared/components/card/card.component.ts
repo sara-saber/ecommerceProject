@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/modules/products/models/product';
 import { ProductService } from 'product.service';
-import { CartService } from 'src/app/modules/shoping-cart/services/cart.service';
+import { CartService } from 'src/app/modules/shell/components/shoping-cart/services/cart.service';
+
 
 
 @Component({
@@ -22,5 +23,9 @@ export class CardComponent implements OnInit {
   addProductToCart(product:Product){
     this.cartServices.addToCart(this.product)
    return this.router.navigate(['cart'])
+  }
+  showDetails(product:Product)
+  {
+    this.router.navigate(['details',product.id])
   }
 }

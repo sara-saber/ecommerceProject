@@ -1,28 +1,18 @@
+import { AdminComponent } from './modules/admin/admin/admin.component';
+import { ShellModule } from './modules/shell/shell.module';
+import { ShellComponent } from './modules/shell/shell.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './modules/home/components/home.component';
-import { ShopComponent } from './modules/shop/shop.component';
-
-import { ShopingCartComponent } from './modules/shoping-cart/components/shoping-cart/shoping-cart.component';
-
 const routes: Routes = [
   {
-    component:HomeComponent,
-    path:''
+    path:'',
+    component:ShellComponent,
+    loadChildren:()=>ShellModule
   },
   {
-    component:ShopingCartComponent,
-    path:'cart'
-  },
-  {
-    component:ShopComponent,
-    path:'shop'
-  },
-  {
-    component:ShopComponent,
-    path:'shop/:category'
+    path:'admin',
+    component:AdminComponent
   }
-
 ];
 
 @NgModule({
